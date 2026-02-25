@@ -1,6 +1,6 @@
 ﻿using NotatnikSilowy.ViewModel;
 
-namespace NotatnikSilowy;
+namespace NotatnikSilowy.View;
 
 public partial class MainPage : ContentPage
 {

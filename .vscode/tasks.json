@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run MAUI Android",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"build",
+				".\\GymNote\\GymNote.csproj",
+				"-t:Run",
+				"-f",
+				"net9.0-android"
+			],
+			"isBackground": false,
+			"group": "build"
+		}
+	]
+}

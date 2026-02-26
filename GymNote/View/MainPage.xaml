@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymNote.View.MainPage"
+             xmlns:vm="clr-namespace:GymNote.ViewModel"
+             xmlns:model="clr-namespace:DomainModel;assembly=DomainModel"
+             xmlns:localization="clr-namespace:GymNote.Localization"
+             x:DataType="vm:MainPageViewModel">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+        <StackLayout>
+            <Label Text="{localization:Translate HeaderLabel1}"
+                   SemanticProperties.HeadingLevel="Level1"
+                   FontSize="32"
+                   HorizontalOptions="Center"/>
+            <Label Text="{localization:Translate HeaderLabel2}"
+                   SemanticProperties.HeadingLevel="Level2"
+                   FontSize="18"
+                   HorizontalOptions="Center"/>
+            <Image Source="dotnet_bot.png"
+                   HeightRequest="185"
+                   Aspect="AspectFit"
+                   SemanticProperties.Description="{localization:Translate BotDescription}"/>
+        </StackLayout>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="30,0"
+                                 Spacing="25"
+                                 VerticalOptions="Fill">
+                <Label Text="{localization:Translate HelloWorld}"
+                       Style="{StaticResource Headline}"
+                       SemanticProperties.HeadingLevel="Level1"/>
+
+                <ListView ItemsSource="{Binding Profiles}"
+                          SelectedItem="{Binding SelectedProfile, Mode=TwoWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model:GymerProfilePO">
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.RowSpan="2"
+                                           Source="{Binding ImageUrl}"
+                                           Aspect="AspectFill"
+                                           HeightRequest="60"
+                                           WidthRequest="60"/>
+                                    <Label Grid.Column="1"
+                                           Text="{Binding Name}"
+                                           FontAttributes="Bold"/>
+                                    <Label Grid.Row="1"
+                                           Grid.Column="1"
+                                           Text="{Binding Location}"
+                                           FontAttributes="Italic"
+                                           VerticalOptions="End"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Grid Grid.Row="2"
+              RowDefinitions="Auto, Auto, Auto">
+            <Button x:Name="BeginButton"
+                    Grid.Row="0"
+                    IsEnabled="{Binding IsBeginEnabled, Mode=TwoWay}"
+                    Text="{localization:Translate Begin}"
+                    SemanticProperties.Hint="{localization:Translate Begin}"
+                    Command="{Binding BeginCommand, Mode=OneWay}"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="End"/>
+
+            <Label Grid.Row="1"
+                   Margin="{StaticResource Margin-TB-M}"
+                   Text="{localization:Translate Or}"
+                   HorizontalOptions="Center"/>
+
+            <Button x:Name="NewProfileButton"
+                    Grid.Row="2"
+                    Text="{localization:Translate NewProfile}"
+                    SemanticProperties.Hint="{localization:Translate NewProfile}"
+                    Command="{Binding NewProfileCommand, Mode=OneWay}"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="End"/>
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

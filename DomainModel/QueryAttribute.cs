@@ -1,6 +1,4 @@
-using System;
-
-namespace NotatnikSilowy.DomainModel;
+namespace DomainModel;
 
 public static class QueryAttribute 
 {

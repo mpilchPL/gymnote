@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Android Device": {
+      "commandName": "Project",
+      "nativeDebugging": false,
+      "commandLineArgs": "--framework net9.0-android"
+    }
+  }
+}

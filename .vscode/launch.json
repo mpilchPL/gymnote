@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C#: NotatnikSilowy [Pixel_6 - API 36]",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/GymNote/GymNote.csproj"
+    },
+    {
+      "name": "MAUI Android",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/GymNote/GymNote.csproj"
+    }
+  ]
+}

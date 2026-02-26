@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="GymNote.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:localization="clr-namespace:GymNote.Localization"
+    xmlns:view="clr-namespace:GymNote.View"
+    Title="{localization:Translate AppTitle}">
+
+    <ShellContent
+        Title="{localization:Translate HomeTitle}"
+        ContentTemplate="{DataTemplate view:MainPage}"
+        Route="MainPage" />
+
+</Shell>
